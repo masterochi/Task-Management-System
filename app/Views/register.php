@@ -6,24 +6,45 @@
         </div>
     </header>
     <section>
-    <form action="login.html">
+    <form method="post" action="<?php echo base_url();?>register">
         <div class="container mb-3 mt-5">
-        <label for="fname" class="form-label fw-bold">Full Name</label>
+
+            <?php if (session()->getFlashdata('error')) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo session()->getFlashdata('error'); ?>
+                </div>
+            <?php } ?>
+
+        <form method="post" action="<?php echo base_url(); ?>register">
+
+        <label for="fullname" class="form-label fw-bold">Full Name</label>
         <br>
-        <input type="text" class="form-control" name="fname" id="fname" placeholder="Please Enter your full name">
+        <input type="text" class="form-control" name="fullname"  placeholder="Please Enter your full name" required>
         <br>
-        <label for="usname" class="form-label fw-bold">Username</label>
+        <label for="username" class="form-label fw-bold">Username</label>
         <br>
-        <input type="text" class="form-control" name="usname" id="usname" placeholder="Please Enter your Username">
+        <input type="text" class="form-control" name="username"  placeholder="Please Enter your Username" required>
         <br>
         <label for="email" class="form-label fw-bold">Email</label>
         <br>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Please Enter your Email">
+        <input type="email" class="form-control" name="email"  placeholder="Please Enter your Email" required>
         <br>
-        <label for="pass" class="form-label fw-bold">Password</label>
+        <label for="password" class="form-label fw-bold">Password</label>
         <br>
-        <input type="password" class="form-control" name="pass" id="pass" placeholder="Please Enter your Password">
+        <input type="password" class="form-control" name="password"  placeholder="Please Enter your Password" required>
         <br><br>
-        <a href="login.html" class="btn btn-primary">Sign Up</a>
+        <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+</form>
     </section>
+
+<?php if (session()->getFlashdata('error')) { ?>
+
+
+<script>
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: " <?php echo session()->getFlashdata('error'); ?>",
+});</script>
+<?php } ?>

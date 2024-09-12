@@ -6,16 +6,27 @@
     </header>
     <section>
     <div class="container md-3 mt-5 card py-2">
-        <form action="">
-            <label for="usname" class="form-label">Username</label>
+        <form method="post" action="<?php echo base_url();?>login">
+            <label for="username" class="form-label">Username</label>
         <br>
-        <input type="text" placeholder="Enter Username" class="form-control" id="usname">
+        <input type="text" placeholder="Enter Username" class="form-control" name="username">
         <br>
-        <label for="pass" class="form-label">Password</label>
+        <label for="password" class="form-label">Password</label>
         <br>
-        <input type="password" placeholder="Enter Password"  class="form-control" id="pass">
+        <input type="password" placeholder="Enter Password"  class="form-control" name="password">
         <br>
-        <a href="main.html" class="btn btn-primary">Login</a> 
+        <button type="submit" class="btn btn-primary">Login</button> 
     </form>
 </div>
 </section>
+
+<?php if (session()->getFlashdata('error')) { ?>
+
+
+<script>
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: " <?php echo session()->getFlashdata('error'); ?>",
+});</script>
+<?php } ?>

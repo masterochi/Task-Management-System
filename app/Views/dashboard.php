@@ -4,7 +4,7 @@
             <h1 class="text-center">Welcome to Task Management System</h1>
             <div class="container">
             <p class="lead">Manage your tasks effectively and efficiently</p>
-            <button type="button" class="btn btn-primary">Add New Task</button>
+            <a href="newtask" class="btn btn-primary">Add New Task</a>
             </div>
         </div>
     </header>
@@ -24,17 +24,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button type="button" class="btn btn-warning">Update</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-        </tbody>
+                    <?php 
+                     $id = 1;
+                    foreach ($tasks as $task): 
+                       
+                        ?>
+                        <tr>
+                            <td><?=$id?></td>
+                            <td><?= $task['title'] ?></td>
+                            <td><?= $task['description'] ?></td>
+
+                            <td><?=$task['due_date']?></td>
+                            <td><?php echo $status[$task['status']]; ?></td>
+                            <td>
+                                <a href="<?php echo base_url(); ?>update/<?= $task['id'] ?>" class="btn btn-warning btn-sm">Update</a>
+                                <a href="<?php echo base_url();?>delete/<?= $task['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    <?php $id++;
+                 endforeach; ?>
+                </tbody>
       </table>
       </div>
 </section>

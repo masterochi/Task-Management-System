@@ -6,24 +6,23 @@
         </div>
     </header>
     <section>
-    <form action="">
+    <form method="post" action="<?php echo base_url();?>profile">
         <div class="container mb-3 mt-5">
-        <label for="fname" class="form-label fw-bold">Full Name</label>
+        <label for="fullname" class="form-label fw-bold">Full Name</label>
         <br>
-        <input type="text" class="form-control" name="fname" id="fname" placeholder="Please Enter your full name" value="<?=$name?>">
+        <input type="text" class="form-control" placeholder="Please Enter your full name" value="<?=$name?>">
         <br>
-        <label for="usname" class="form-label fw-bold">Username</label>
+        <label for="username" class="form-label fw-bold">Username</label>
         <br>
-        <input type="text" class="form-control" name="usname" id="usname" placeholder="Please Enter your Username" value="<?=$username?>">
+        <input type="text" class="form-control" placeholder="Please Enter your Username" value="<?=$username?>">
         <br>
         <label for="email" class="form-label fw-bold">Email</label>
         <br>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Please Enter your Email" value="<?=$email?>">
+        <input type="email" class="form-control" placeholder="Please Enter your Email" value="<?=$email?>">
         <br>
-        <label for="pass" class="form-label fw-bold">Password</label>
+        <label for="password" class="form-label fw-bold">Password</label>
         <br>
-        <input type="password" class="form-control" name="pass" id="pass" placeholder="Please Enter your Password" value="<?=$password?>">
-        <br><br>
-        <a href="" class="btn btn-primary">Sign Up</a>
+        <input type="password" class="form-control" placeholder="Please Enter your Password" value="<?=$password?>">
+        <br>
         </form>
     </section>
